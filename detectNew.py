@@ -1,6 +1,8 @@
 import numpy as np 
 import cv2
 
+import time 
+
 class Camera():
     _videoPath = 'test.mp4'
     def __init__(self):
@@ -68,14 +70,15 @@ def nothing(x):
 
 if __name__ == '__main__':
     camera = Camera().getCamera()
+    start_time = time.time()
     
-    # if noFrame
     while True:
         (grabbed, frame) = camera.read()
         
         gray = GrayImg(frame, False).getFrame()
         gray2 = GrayImg(frame, False).getFrame()
-        cv2.imwrite('temp.png', gray)
+        if int(time.time() - start_time) == 3:
+            cv2.imwrite('temp.png', gray)
         # blur = GaussianBlurImg(gray, (7, 7), 0, True).getFrame()
         blur = gray
         blur2 = GaussianBlurImg(gray2, (5, 5), 0, True).getFrame()

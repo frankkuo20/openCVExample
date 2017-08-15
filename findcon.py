@@ -40,15 +40,19 @@ if __name__ == '__main__':
         dilate = cv2.dilate(threshold, None, iterations=num3)       
         cv2.imshow('dilate', dilate)
         
-        im2, contours, hierarchy = cv2.findContours(dilate.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        im2, contours, hierarchy = cv2.findContours(dilate.copy(), cv2.RETR_LIST, 
+        cv2.CHAIN_APPROX_NONE)
 
         origin2 = origin.copy()
         for contour in contours:
-            x,y,w,h = cv2.boundingRect(contour)
+            approx = cv2.approxPolyDP(contour,30,True)
+            cv2.drawContours(origin2,[approx],0,(255,0,0),-1)
+
+            # x,y,w,h = cv2.boundingRect(contour)
         
-            markColor = (0, 0, 255)
-            cv2.drawContours(origin2, contour, -1, markColor, 2)
-            cv2.rectangle(origin2,(x,y),(x+w,y+h), markColor, 2)
+            # markColor = (0, 0, 255)
+            # cv2.drawContours(origin2, contour, -1, markColor, 2)
+            # cv2.rectangle(origin2,(x,y),(x+w,y+h), markColor, 2)
         
         cv2.imshow('frame', origin2)
 
