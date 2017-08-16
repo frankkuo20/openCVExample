@@ -25,7 +25,7 @@ while(True):
 
     cv2.imshow("cropped", crop_frame)
 
-    cv2.rectangle(frame, (x, y), (w, h), (0, 255, 0), 2)
+    cv2.rectangle(frame, (areaX, areaY), (areaW, areaH), (0, 255, 0), 2)
 
     # Our operations on the frame come here
     gray = cv2.cvtColor(crop_frame, cv2.COLOR_BGR2GRAY)
