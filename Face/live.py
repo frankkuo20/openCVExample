@@ -6,10 +6,10 @@ import cv2
 cap = cv2.VideoCapture(0)
 
 # Create the haar cascade
-# faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 # faceCascade = cv2.CascadeClassifier("lbpcascade_frontalface.xml")
 # faceCascade = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml")
-faceCascade = cv2.CascadeClassifier("lbpcascade_profileface.xml")
+# faceCascade = cv2.CascadeClassifier("lbpcascade_profileface.xml")
 
 
 while(True):
