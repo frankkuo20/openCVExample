@@ -6,22 +6,22 @@ import cv2
 cap = cv2.VideoCapture('../test.mp4')
 
 # Create the haar cascade
-faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-# faceCascade = cv2.CascadeClassifier("lbpcascade_frontalface.xml")
+# faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+faceCascade = cv2.CascadeClassifier("lbpcascade_frontalface.xml")
 # faceCascade = cv2.CascadeClassifier("lbpcascade_frontalface_improved.xml")
 # faceCascade = cv2.CascadeClassifier("lbpcascade_profileface.xml")
 
-x = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) / 4 )
-y = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) / 4 )
-w = x*3
-h = y*3
+areaX = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) / 4 )
+areaY = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) / 4 )
+areaW = x*3
+areaH = y*3
 
 
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
 
-    crop_frame = frame[y:h, x:w] # [y:h, x:w]
+    crop_frame = frame[areaY:areaH, areaX:areaW] # [y:h, x:w]
 
     cv2.imshow("cropped", crop_frame)
 
