@@ -13,8 +13,8 @@ faceCascade = cv2.CascadeClassifier("lbpcascade_frontalface.xml")
 
 areaX = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) / 4 )
 areaY = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) / 4 )
-areaW = x*3
-areaH = y*3
+areaW = areaX*3
+areaH = areaY*3
 
 
 while(True):
