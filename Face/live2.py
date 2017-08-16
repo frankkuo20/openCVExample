@@ -46,6 +46,8 @@ while(True):
 
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
+        x += areaX
+        y += areaY
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
 
