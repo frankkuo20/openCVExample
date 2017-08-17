@@ -15,7 +15,7 @@ trainKP, trainDecs = detector.detectAndCompute(trainImg, None)
 
 
 cam = cv2.VideoCapture(0)
-cam = cv2.VideoCapture('../test.mp4')
+# cam = cv2.VideoCapture('../test.mp4')
 
 
 while True:
