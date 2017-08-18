@@ -6,7 +6,8 @@ import cv2
 # cap = cv2.VideoCapture(0)
 cap = cv2.VideoCapture('frank2.mp4')
 
-rec = cv2.face.createLBPHFaceRecognizer()
+rec = cv2.face.createLBPHFaceRecognizer()  # 3.3.0.9
+# rec = cv2.face.LBPHFaceRecognizer_create() # 3.2.0.8
 rec.load('trainner.yml')
 
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
