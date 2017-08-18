@@ -12,7 +12,7 @@ faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 # faceCascade = cv2.CascadeClassifier("lbpcascade_profileface.xml")
 
 
-while(True):
+while True:
 	# Capture frame-by-frame
 	ret, frame = cap.read()
 
