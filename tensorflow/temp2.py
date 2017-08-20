@@ -5,10 +5,10 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 
 x = tf.placeholder(tf.float32, [None, 784])  # 28*28
-
+print(x)
 W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
-
+print(b)
 y = tf.nn.softmax(tf.matmul(x, W)+b)
 
 
@@ -26,8 +26,10 @@ init = tf.global_variables_initializer()
 
 sess = tf.Session()
 sess.run(init)
-for i in range(1000):
+for i in range(1):
     batch_xs, batch_ys = mnist.train.next_batch(100)
+    print(batch_ys)
+
     sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
