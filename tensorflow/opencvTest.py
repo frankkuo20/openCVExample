@@ -73,18 +73,18 @@ y_pred = simple_model(X, w, w2, w3, w4, w5, w_o, p_keep_input, p_keep_hidden)
 # print(result)
 # print(result.argmax())
 
-# cap = cv2.VideoCapture("video.mp4")
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("video.mp4")
+# cap = cv2.VideoCapture(0)
 count = 0
 while True:
     _, image = cap.read()
     cv2.imshow('test', image)
     image = cv2.resize(image, (128, 128))
 
-    if count % 10 == 0:
+    if count % 5 == 0:
         sess = tf.Session()
         saver = tf.train.Saver()
-        saver.restore(sess, './0_train/graph.ckpt-30')
+        saver.restore(sess, './0_train/graph.ckpt-5')
         result = sess.run(y_pred, feed_dict={X: [image], p_keep_hidden: 1.0, p_keep_input: 1.0})
         print(result)
         print(count, result.argmax())
