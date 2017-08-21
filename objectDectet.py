@@ -67,8 +67,8 @@ def four_point_transform(image, pts):
     rect = order_points(pts)
     (tl, tr, br, bl) = rect
 
-    maxWidth = w / 2
-    maxHeight = h / 2
+    maxWidth = int(w / 2)
+    maxHeight = int(h / 2)
 
     dst = np.array([
         [0, 0],
