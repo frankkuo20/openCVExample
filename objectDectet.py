@@ -144,7 +144,7 @@ def main():
 
         # Detecting Edges
         edges = auto_canny(blurred)
-
+        cv2.imshow('edges', edges)
         # Contour Detection & checking for squares based on the square area
         cntr_frame, contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 

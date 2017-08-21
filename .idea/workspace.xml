@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79c18617-9907-4d43-9e15-d68c332a7140" name="Default" comment="add object detect">
+    <list default="true" id="79c18617-9907-4d43-9e15-d68c332a7140" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/objectDectet.py" afterPath="$PROJECT_DIR$/objectDectet.py" />
     </list>
@@ -19,7 +19,7 @@
     <SUITE FILE_PATH="coverage/opencv$opencvTest.coverage" NAME="opencvTest Coverage Results" MODIFIED="1503303467276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tensorflow" />
     <SUITE FILE_PATH="coverage/opencv$siftObjectDetector.coverage" NAME="siftObjectDetector Coverage Results" MODIFIED="1502949531487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/objectDetector" />
     <SUITE FILE_PATH="coverage/opencv$read.coverage" NAME="read Coverage Results" MODIFIED="1503287350903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tensorflow" />
-    <SUITE FILE_PATH="coverage/opencv$objectDectet.coverage" NAME="objectDectet Coverage Results" MODIFIED="1503306021474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/opencv$objectDectet.coverage" NAME="objectDectet Coverage Results" MODIFIED="1503307437354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/opencv$detetorTrainData.coverage" NAME="detetorTrainData Coverage Results" MODIFIED="1502958853103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/objectDetetorFace" />
     <SUITE FILE_PATH="coverage/opencv$detetor.coverage" NAME="detetor Coverage Results" MODIFIED="1503027996898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/objectDetetorFace" />
     <SUITE FILE_PATH="coverage/opencv$detetor__1_.coverage" NAME="detetor Coverage Results" MODIFIED="1502961867534" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/objectDetetorFace" />
@@ -93,8 +93,8 @@
       <file leaf-file-name="objectDectet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/objectDectet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="132" column="35" lean-forward="true" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
+            <state relative-caret-position="318">
+              <caret line="146" column="33" lean-forward="false" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
               <folding>
                 <element signature="e#32#43#0" expanded="true" />
               </folding>
@@ -510,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1503307163552</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add object detect">
+      <created>1503307329269</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1503307329269</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -930,8 +937,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/objectDectet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="132" column="35" lean-forward="true" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="35" />
+        <state relative-caret-position="318">
+          <caret line="146" column="33" lean-forward="false" selection-start-line="146" selection-start-column="33" selection-end-line="146" selection-end-column="33" />
           <folding>
             <element signature="e#32#43#0" expanded="true" />
           </folding>
