@@ -150,7 +150,7 @@ def main():
 
             if len(approx) == 4:
                 area = cv2.contourArea(approx)
-
+                print(area)
                 if area > minSquareArea:
                     cv2.drawContours(OriginalFrame, [approx], 0, (0, 0, 255), 2)
                     warped = four_point_transform(OriginalFrame, approx.reshape(4, 2))
@@ -170,7 +170,7 @@ def main():
                                         (255, 0, 255), 2, cv2.LINE_AA)
                             diff = minDiff
                             break
-                    print('in')
+
                     cv2.imshow("Corrected Perspective", warped_eq)
                     cv2.imshow("Matching Operation", diffImg)
                     cv2.imshow("Contours", edges)
