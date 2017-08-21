@@ -130,7 +130,7 @@ def main():
     cv2.namedWindow("Corrected Perspective", cv2.WINDOW_AUTOSIZE)
     cv2.namedWindow("Contours", cv2.WINDOW_AUTOSIZE)
 
-    cv2.resizeWindow('Main Frame', w, h)
+    cv2.resizeWindow('Main Frame', int(w / 2), int(h / 2))
 
     # Read all the reference images
     readRefImages()
