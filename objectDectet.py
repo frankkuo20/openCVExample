@@ -130,12 +130,15 @@ def main():
     cv2.namedWindow("Corrected Perspective", cv2.WINDOW_AUTOSIZE)
     cv2.namedWindow("Contours", cv2.WINDOW_AUTOSIZE)
 
+    cv2.resizeWindow('Main Frame', w, h)
+
     # Read all the reference images
     readRefImages()
 
     # capture frames from the camera
     while True:
         ret, OriginalFrame = video.read()
+
         gray = cv2.cvtColor(OriginalFrame, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (3, 3), 0)
 
