@@ -122,6 +122,7 @@ def main():
 
     # initialize the camera and grab a reference to the raw camera capture
     video = cv2.VideoCapture(0)
+    # video = cv2.VideoCapture('tensorflow/video.mp4')
 
     # Windows to display frames
     cv2.namedWindow("Main Frame", cv2.WINDOW_AUTOSIZE)
@@ -149,7 +150,7 @@ def main():
 
             if len(approx) == 4:
                 area = cv2.contourArea(approx)
-
+                print(area)
                 if area > minSquareArea:
                     cv2.drawContours(OriginalFrame, [approx], 0, (0, 0, 255), 2)
                     warped = four_point_transform(OriginalFrame, approx.reshape(4, 2))
@@ -177,8 +178,7 @@ def main():
         # Display Main Frame
         cv2.imshow("Main Frame", OriginalFrame)
 
-        k = cv2.waitKey(1) & 0xFF
-        if k == 27:
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
     video.release()
