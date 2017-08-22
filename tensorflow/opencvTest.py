@@ -72,8 +72,8 @@ y_pred = simple_model(X, w, w2, w3, w4, w5, w_o, p_keep_input, p_keep_hidden)
 # print(result)
 # print(result.argmax())
 
-cap = cv2.VideoCapture("video.mp4")
-# cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture("video.mp4")
+cap = cv2.VideoCapture(0)
 count = 0
 while True:
     _, image = cap.read()
@@ -88,7 +88,7 @@ while True:
         result = sess.run(y_pred, feed_dict={X: [image], p_keep_hidden: 1.0, p_keep_input: 1.0})
         print(result)
         print(count, result.argmax())
-        print("all values %s" % sess.run(y_pred))
+
 
     count += 1
 
