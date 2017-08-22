@@ -62,7 +62,6 @@ y_pred = simple_model(X, w, w2, w3, w4, w5, w_o, p_keep_input, p_keep_hidden)
 
 
 
-
 # # image = cv2.imread('0_train/neg/IMG_3101.jpg', 1)
 # image = cv2.imread('0_train/pos/IMG_3114.jpg', 1)
 # image = cv2.resize(image, (128, 128))
@@ -82,12 +81,14 @@ while True:
     image = cv2.resize(image, (128, 128))
 
     if count % 5 == 0:
+
         sess = tf.Session()
         saver = tf.train.Saver()
         saver.restore(sess, './0_train/graph.ckpt-5')
         result = sess.run(y_pred, feed_dict={X: [image], p_keep_hidden: 1.0, p_keep_input: 1.0})
         print(result)
         print(count, result.argmax())
+        print("all values %s" % sess.run(y_pred))
 
     count += 1
 
