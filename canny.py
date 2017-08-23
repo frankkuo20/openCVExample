@@ -42,7 +42,8 @@ while True:
 
     minCanny = cv2.getTrackbarPos('minCanny', 'canny')
     maxCanny = cv2.getTrackbarPos('maxCanny', 'canny')
-    image = auto_canny(image)
+    # image = auto_canny(image)
+    image = cv2.Canny(image, minCanny, maxCanny)
     cv2.imshow('canny', image)
 
 
