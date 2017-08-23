@@ -1,9 +1,21 @@
 import cv2
-
+import numpy as np
 
 def nothing(x):
     pass
 
+
+def auto_canny(image, sigma=0.33):
+    # compute the median of the single channel pixel intensities
+    v = np.median(image)
+
+    # apply automatic Canny edge detection using the computed median
+    lower = int(max(0, (1.0 - sigma) * v))
+    upper = int(min(255, (1.0 + sigma) * v))
+    edged = cv2.Canny(image, lower, upper)
+
+    # return the edged image
+    return edged
 
 cap = cv2.VideoCapture(0)
 
@@ -30,7 +42,7 @@ while True:
 
     min = cv2.getTrackbarPos('min', 'canny')
     max = cv2.getTrackbarPos('max', 'canny')
-    image = cv2.Canny(image, min, max)
+    image = auto_canny(image)
     cv2.imshow('canny', image)
 
 
