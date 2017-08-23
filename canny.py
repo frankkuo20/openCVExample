@@ -22,8 +22,8 @@ cap = cv2.VideoCapture(0)
 
 cv2.namedWindow('canny')
 
-cv2.createTrackbar('min', 'canny', 5, 500, nothing)
-cv2.createTrackbar('max', 'canny', 5, 500, nothing)
+cv2.createTrackbar('minCanny', 'canny', 5, 500, nothing)
+cv2.createTrackbar('maxCanny', 'canny', 5, 500, nothing)
 
 
 
@@ -40,8 +40,8 @@ while True:
     image = cv2.absdiff(image, image2)
     cv2.imshow('diff', image)
 
-    min = cv2.getTrackbarPos('min', 'canny')
-    max = cv2.getTrackbarPos('max', 'canny')
+    minCanny = cv2.getTrackbarPos('minCanny', 'canny')
+    maxCanny = cv2.getTrackbarPos('maxCanny', 'canny')
     image = auto_canny(image)
     cv2.imshow('canny', image)
 
