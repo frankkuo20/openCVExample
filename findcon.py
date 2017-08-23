@@ -12,14 +12,14 @@ if __name__ == '__main__':
 
     cv2.namedWindow('frame')
     
-    cv2.createTrackbar('GaussianBlur', 'frame' , 1, 100, nothing)
-    cv2.createTrackbar('Threshold', 'frame' , 10, 100, nothing)
-    cv2.createTrackbar('Dilate', 'frame' , 1, 5, nothing)
+    cv2.createTrackbar('GaussianBlur', 'frame', 1, 100, nothing)
+    cv2.createTrackbar('Threshold', 'frame', 10, 100, nothing)
+    cv2.createTrackbar('Dilate', 'frame', 1, 5, nothing)
     
     while(True):
         
-        num = cv2.getTrackbarPos('GaussianBlur','frame') * 2 +1
-        num2 = cv2.getTrackbarPos('Threshold','frame') 
+        num = cv2.getTrackbarPos('GaussianBlur', 'frame') * 2 +1
+        num2 = cv2.getTrackbarPos('Threshold', 'frame')
         num3 = cv2.getTrackbarPos('Dilate', 'frame')
 
         frame = cv2.cvtColor(origin.copy(), cv2.COLOR_BGR2GRAY)
