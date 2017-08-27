@@ -1,0 +1,5 @@
+model_checkpoint_path: "graph.ckpt-5"
+all_model_checkpoint_paths: "graph.ckpt-10"
+all_model_checkpoint_paths: "graph.ckpt-20"
+all_model_checkpoint_paths: "graph.ckpt-30"
+all_model_checkpoint_paths: "graph.ckpt-5"

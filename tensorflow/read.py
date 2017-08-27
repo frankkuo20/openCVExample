@@ -4,7 +4,7 @@ import tensorflow as tf
 import numpy as np
 import os
 
-'''
+
 def get_image_paths(img_dir):
     """
     Get all files' name under given dir img_dir
@@ -13,7 +13,7 @@ def get_image_paths(img_dir):
     filenames = os.listdir(img_dir)
     filenames = [os.path.join(img_dir, item) for item in filenames]
     return filenames
-#pos_filenames和neg_filenames分别对应色情图片和正常图片的文件名
+#pos_filenames和neg_filenames
 pos_filenames = get_image_paths("./0_train/pos")
 neg_filenames = get_image_paths("./0_train/neg")
 print("num of pos samples is %d" % len(pos_filenames))
@@ -79,7 +79,7 @@ def save_as_tfrecord(samples, labels, bin_path):
 save_as_tfrecord(all_test, all_test_label, "./0_train/train.bin")
 save_as_tfrecord(all_train, all_train_label, "./0_train/test.bin")
 
-'''
+
 # =========================================================================
 
 IMG_SIZE = 128  # 图像大小
@@ -181,8 +181,8 @@ img_batch, label_batch = input_pipeline(["./0_train/train.bin"], 200)
 # =====================================================================================
 
 disp_step = 5
-save_step = 20
-max_step = 1000  # 最大迭代次数
+save_step = 10
+max_step = 31  # 最大迭代次数
 step = 0
 saver = tf.train.Saver()  # 用来保存模型的
 epoch = 5
@@ -196,11 +196,6 @@ with tf.Session() as sess:
     threads = tf.train.start_queue_runners(coord=coord)
     try:
         # 获取训练数据成功，并且没有到达最大训练次数
-        for i in range(10):
-            print(i)
-            imgs, labels = sess.run([img_batch, label_batch])
-            sess.run(train_op, feed_dict={X: imgs, Y: labels, p_keep_hidden: P_KEEP_HIDDEN, p_keep_input: P_KEEP_INPUT})
-
         while not coord.should_stop() and step < max_step:
             step += 1
             # 运行tensor，获取数据
@@ -226,10 +221,10 @@ print("training is done")
 # =======================================================================
 
 # 每batch随机取500张
-test_img_batch, test_label_batch = input_pipeline(["./0_train/test.bin"], 500)
+test_img_batch, test_label_batch = input_pipeline(["./0_train/test.bin"], 5)
 with tf.Session() as sess:
     # 加载模型。模型的文件名称看下本地情况
-    saver.resotore(sess, './0_train/graph.ckpt-1000')
+    saver.restore(sess, './0_train/graph.ckpt-5')
 
     coord_test = tf.train.Coordinator()
     threads_test = tf.train.start_queue_runners(coord=coord_test)
