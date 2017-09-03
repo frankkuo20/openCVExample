@@ -44,7 +44,7 @@ cv2.createTrackbar('vmax', 'ValComp', 255, 255, nothing)
 # vmx = 255
 
 
-while (1):
+while 1:
 
     buzz = 0
     _, frame = cap.read()

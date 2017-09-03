@@ -1,17 +1,19 @@
-import numpy as np 
+import numpy as np
 import cv2
 
-import time 
+import time
+
 
 class Camera():
     _videoPath = 'test.mp4'
+
     def __init__(self):
         self._cap = cv2.VideoCapture(0)
         if not self._cap.isOpened():
             self._cap = cv2.VideoCapture(self._videoPath)
-    
+
     def getCamera(self):
-        return self._cap    
+        return self._cap
 
     def release(self):
         self._cap.release()
@@ -50,58 +52,60 @@ class AbsdiffImg(ImageShowBase):
 
 class ThresholdImg(ImageShowBase):
     def __init__(self, frame, isShow):
-        self._frame = cv2.threshold(frame, 10, 255, cv2.THRESH_BINARY )
+        self._frame = cv2.threshold(frame, 10, 255, cv2.THRESH_BINARY)
         super(ThresholdImg, self).imgShow(isShow, 'threshold', self._frame[1])
 
 
 class DilateImg(ImageShowBase):
     def __init__(self, frame, isShow):
-        self._frame = cv2.dilate(frame, None, iterations=1)
+        self._frame = cv2.dilate(frame, None, iterations=0)
         super(DilateImg, self).imgShow(isShow, 'dilate', self._frame)
 
 
 class FindContoursImg(ImageShowBase):
     def __init__(self, frame):
         self._frame = cv2.findContours(frame, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        
+
 
 def nothing(x):
     pass
 
+
 if __name__ == '__main__':
     camera = Camera().getCamera()
     start_time = time.time()
-    
+
     while True:
         (grabbed, frame) = camera.read()
-        
+
         gray = GrayImg(frame, False).getFrame()
         gray2 = GrayImg(frame, False).getFrame()
         if int(time.time() - start_time) == 3:
             cv2.imwrite('temp.png', gray)
-        # blur = GaussianBlurImg(gray, (7, 7), 0, True).getFrame()
-        blur = gray
+        blur = GaussianBlurImg(gray, (3, 3), 0, True).getFrame()
+        # blur = gray
         blur2 = GaussianBlurImg(gray2, (5, 5), 0, True).getFrame()
-        
+
         diff = AbsdiffImg(blur, blur2, True).getFrame()
-        
+
         _, thres = ThresholdImg(diff, False).getFrame()
-        
+
         dilated = DilateImg(thres, True).getFrame()
 
         _, contours, hierarchy = FindContoursImg(dilated).getFrame()
-        
+
         '''
         areas = [cv2.contourArea(c) for c in contours] 
         max_index = np.argmax(areas) 
         cnt = contours[max_index]
         '''
         for contour in contours:
-            x,y,w,h = cv2.boundingRect(contour)
-        
+            x, y, w, h = cv2.boundingRect(contour)
+            # if w*h < 4000 or w*h > 800000:
+            #     continue
             markColor = (0, 255, 0)
             cv2.drawContours(frame, contour, -1, markColor, 2)
-            cv2.rectangle(frame,(x,y),(x+w,y+h), markColor,2)
+            cv2.rectangle(frame, (x, y), (x + w, y + h), markColor, 2)
 
         cv2.imshow("final", frame)
 
@@ -109,4 +113,5 @@ if __name__ == '__main__':
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
+    cv2.destroyAllWindows()
     camera.release()

@@ -152,8 +152,11 @@ def main():
             approx = cv2.approxPolyDP(cnt, 0.01 * cv2.arcLength(cnt, True), True)
 
             if len(approx) == 4:
+                markColor = (0, 255, 255)
+                cv2.drawContours(OriginalFrame, [approx], -1, markColor, 2)
+
                 area = cv2.contourArea(approx)
-                print(area)
+
                 if area > minSquareArea:
                     cv2.drawContours(OriginalFrame, [approx], 0, (0, 0, 255), 2)
                     warped = four_point_transform(OriginalFrame, approx.reshape(4, 2))
