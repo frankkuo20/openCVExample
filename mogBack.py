@@ -47,13 +47,13 @@ while True:
         # cv2.drawContours(frame, contour, -1, markColor, 2)
         # cv2.rectangle(frame, (x, y), (x + w, y + h), markColor, 2)
 
-    areas = [cv2.contourArea(c) for c in contours]
-    max_index = np.argmax(areas)
-    cnt = contours[max_index]
-    markColor = (0, 127, 255)
-    cv2.drawContours(frame, contour, -1, markColor, 2)
-    x, y, w, h = cv2.boundingRect(contour)
-    cv2.rectangle(frame, (x, y), (x + w, y + h), markColor, 2)
+    # areas = [cv2.contourArea(c) for c in contours]
+    # max_index = np.argmax(areas)
+    # cnt = contours[max_index]
+    # markColor = (0, 127, 255)
+    # cv2.drawContours(frame, contour, -1, markColor, 2)
+    # x, y, w, h = cv2.boundingRect(contour)
+    # cv2.rectangle(frame, (x, y), (x + w, y + h), markColor, 2)
 
 
     cv2.imshow('frame', frame)
