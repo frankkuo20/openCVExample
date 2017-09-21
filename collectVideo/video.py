@@ -8,6 +8,7 @@ num = input('Enter student num: ')
 if not os.path.exists(num):
     os.mkdir(num)
 
+
 filePath = '{}/{}_{}.mp4'.format(num, num, type)
 
 if os.path.exists(filePath):
