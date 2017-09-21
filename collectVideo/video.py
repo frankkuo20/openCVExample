@@ -4,9 +4,14 @@ import os
 
 type = input('1. happy \n2. Anger\nEnter type: ')
 num = input('Enter student num: ')
-filePath = '{}_{}.mp4'.format(num, type)
+
 if not os.path.exists(num):
     os.mkdir(num)
+
+filePath = '{}/{}_{}.mp4'.format(num, num, type)
+
+if os.path.exists(filePath):
+    print('Already exist')
 
 cap = cv2.VideoCapture(0)
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) + 0.5)
@@ -46,7 +51,6 @@ while True:
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
 
 cap.release()
 cv2.destroyAllWindows()
