@@ -17,9 +17,13 @@ cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y,
 # 梯度下降法gradient descent algorithm
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
+
 init = tf.global_variables_initializer()
 
 sess = tf.Session()
+
+writer = tf.summary.FileWriter("logs/", graph=sess.graph)
+
 sess.run(init)
 for i in range(500):
     batch_xs, batch_ys = mnist.train.next_batch(100)
